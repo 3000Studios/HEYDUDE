@@ -1,0 +1,12 @@
+name = "heydude"
+compatibility_date = "2026-04-20"
+pages_build_output_dir = "dist"
+
+[vars]
+APP_NAME = "HEYDUDE"
+OWNER_ADMIN_EMAIL = "mr.jwswain@gmail.com"
+VITE_OWNER_ADMIN_EMAIL = "mr.jwswain@gmail.com"
+VITE_API_BASE_URL = "/api"
+
+[ai]
+binding = "AI"
