@@ -1,6 +1,7 @@
 type Env = {
   AI?: Ai;
   OWNER_ADMIN_EMAIL?: string;
+  ACCESS_REQUIRED?: string;
 };
 
 type IncomingMessage = {
@@ -23,10 +24,11 @@ export const onRequestOptions: PagesFunction<Env> = async () => new Response(nul
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const ownerEmail = env.OWNER_ADMIN_EMAIL || 'mr.jwswain@gmail.com';
-  const requester =
+  const accessRequester =
     request.headers.get('cf-access-authenticated-user-email') ||
-    request.headers.get('cf-access-user-email') ||
-    request.headers.get('x-owner-email');
+    request.headers.get('cf-access-user-email');
+  const requester =
+    env.ACCESS_REQUIRED === '1' ? accessRequester : accessRequester || request.headers.get('x-owner-email');
 
   if (requester?.trim().toLowerCase() !== ownerEmail.toLowerCase()) {
     return json({ error: 'owner_email_required' }, 403);

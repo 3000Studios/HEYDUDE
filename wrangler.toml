@@ -7,6 +7,7 @@ APP_NAME = "HEYDUDE"
 OWNER_ADMIN_EMAIL = "mr.jwswain@gmail.com"
 VITE_OWNER_ADMIN_EMAIL = "mr.jwswain@gmail.com"
 VITE_API_BASE_URL = "/api"
+ACCESS_REQUIRED = "1"
 
 [ai]
 binding = "AI"
